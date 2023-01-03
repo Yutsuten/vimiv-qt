@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        toxenv: [pyqt511, pyqt512, pyqt513]
+        toxenv: [pyqt511, pyqt512, pyqt513, pyexiv2]
       fail-fast: false
 
     steps:
@@ -19,7 +19,8 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: |
-        sudo apt-get install libxkbcommon-x11-0
+        sudo apt-get install libxkbcommon-x11-0 libexiv2-dev libboost-python-dev
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libboost_python3.so /usr/lib/x86_64-linux-gnu/libboost_python37.so
         python -m pip install --upgrade pip
         pip install -r misc/requirements/requirements_tox.txt
       env:
@@ -62,7 +63,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        toxenv: [pyqt515-cov, piexif, pyexiv2, lint, packaging, mypy]
+        toxenv: [pyqt515-cov, piexif, lint, packaging, mypy]
       fail-fast: false
     steps:
     - uses: actions/checkout@v3.2.0
@@ -73,8 +74,6 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 libxcb-xfixes0 libxcb-shape0
-        sudo apt-get install libexiv2-dev libboost-python-dev
-        sudo ln -s /usr/lib/x86_64-linux-gnu/libboost_python3.so /usr/lib/x86_64-linux-gnu/libboost_python310.so
         python -m pip install --upgrade pip
         pip install -r misc/requirements/requirements_tox.txt
     - name: Test with tox
