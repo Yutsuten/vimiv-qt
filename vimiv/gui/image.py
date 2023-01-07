@@ -19,15 +19,13 @@ from vimiv.qt.widgets import (
     QLabel,
 )
 from vimiv.qt.gui import QMovie, QPixmap
+from vimiv.qt.svg import QtSvg
 
 from vimiv import api, imutils, utils
 from vimiv.imutils import slideshow
 from vimiv.commands.argtypes import Direction, ImageScale, ImageScaleFloat, Zoom
 from vimiv.config import styles
 from vimiv.gui import eventhandler
-from vimiv.utils import lazy
-
-QtSvg = lazy.import_module("PyQt5.QtSvg", optional=True)
 
 
 INF = float("inf")
