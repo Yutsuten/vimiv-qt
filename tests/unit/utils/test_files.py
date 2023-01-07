@@ -11,9 +11,9 @@ import imghdr
 import os
 import tarfile
 
-from vimiv.qt.gui import QImageReader
-
 import pytest
+
+from vimiv.qt.gui import QImageReader
 
 from vimiv.utils import files
 
