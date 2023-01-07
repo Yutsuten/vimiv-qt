@@ -10,8 +10,8 @@ import abc
 import contextlib
 import functools
 
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget
+from vimiv.qt.core import Qt
+from vimiv.qt.widgets import QWidget
 
 from vimiv.imutils import imtransform
 

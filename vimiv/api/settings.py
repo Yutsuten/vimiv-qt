@@ -15,7 +15,7 @@ import contextlib
 import enum
 from typing import Any, Dict, ItemsView, List
 
-from PyQt5.QtCore import QObject, pyqtSignal
+from vimiv.qt.core import QObject, pyqtSignal
 
 from vimiv.api import prompt
 from vimiv.utils import clamp, AbstractQObjectMeta, log, customtypes
