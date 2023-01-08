@@ -38,6 +38,8 @@ jobs:
             toxenv: packaging
           - python: "3.10"
             toxenv: mypy
+          - python: "3.11"
+            toxenv: pyqt515
       fail-fast: false
 
     steps:
