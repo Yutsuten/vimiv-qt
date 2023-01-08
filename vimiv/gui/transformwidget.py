@@ -6,7 +6,6 @@
 
 """Base class for widgets which provide a gui for more complex transformations."""
 
-import abc
 import contextlib
 import functools
 
@@ -15,11 +14,11 @@ from vimiv.qt.widgets import QWidget
 
 from vimiv.imutils import imtransform
 
-from vimiv import api, utils
+from vimiv import api
 from vimiv.gui import eventhandler
 
 
-class TransformWidget(QWidget, metaclass=utils.AbstractQObjectMeta):
+class TransformWidget(QWidget):
     """Base class for widgets which provide a gui for more complex transformations.
 
     The child class must implement update_geometry to adapt to a resized image and
@@ -50,9 +49,9 @@ class TransformWidget(QWidget, metaclass=utils.AbstractQObjectMeta):
         self.update_geometry()
         self.show()
 
-    @abc.abstractmethod
     def update_geometry(self):
         """Update geometry of the widget."""
+        raise NotImplementedError("Must be implemented by the actual transformation")
 
     def status_info(self) -> str:
         """Can be overridden by the child to display information in the status bar."""
