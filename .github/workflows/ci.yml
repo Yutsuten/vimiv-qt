@@ -30,10 +30,14 @@ jobs:
             toxenv: pyqt514
           - python: "3.9"
             toxenv: pyqt515
+          - python: "3.9"
+            toxenv: pyqt515-piexif-pyexiv2
           - python: "3.10"
             toxenv: pyqt515-cov
           - python: "3.10"
             toxenv: pyqt515-piexif-cov
+          - python: "3.10"
+            toxenv: pyqt515-piexif-pyexiv2
           - python: "3.10"
             toxenv: lint
           - python: "3.10"
